@@ -1,0 +1,259 @@
+ALGORITHM : SEAT SELECTION
+
+for l<-0 to n-1
+	print"Seat is being chosen for passenger 'l+1'"
+	print"Enter : 1 for NORMAL SEATS  2 for EXTRA LEG SPACE SEATS  3 to exit"
+	read 'c'
+	switch(c)
+		case'1' :
+			print"NORMAL SEATS"
+
+			print"All normal seats are :"
+			for k<-0 to 1
+				for j<-0 to (3+5*k-1)
+				//	for i<-(6*j+1) and count<-0 to 2
+					for count<-0 to 2
+						print'i'
+				//	for i<-(6*j+4) and count<-0 to 2
+					for count<-0 to 2
+						print"pick a seat from above shown seats"
+						read 'p'
+
+			do
+				for count<-0
+					if(((1<=p)&&(p<=18))||((31<=p)&&(p<=48)))
+						seat[l]<-p
+					else
+						printf"wrong choice please reselect"
+				for i<-0 to l-1
+					if seat[l]==seat[i]
+						printf"Seat already taken.please select another"
+			while(i!=l)
+
+			print"You have selected a NORMAL SEAT for passenger"
+			for k<-0 to 1
+				for count<-0 to 2
+					if (seat[l]==6*i+1)||(seat[l]==6*i+6)
+						print"Seat positon : WINDOW SEAT"
+						price1<-3000
+						price2<-0
+						seatprice[l] <-(price1+price2)
+						printf"Seat no.     : 'seat[l]'"
+						printf"Seat price   :  'price1'+ 'price2' = 'seatprice[l]'"
+
+					else if (seat[l]==6*i+2)||(seat[l]==6*i+5)
+						print"Seat positon : MIDDLE SEAT"
+						price1<-2500
+						price2<-0
+						seatprice[l] <-(price1+price2)
+						printf"Seat no.     : 'seat[l]'"
+						printf"Seat price   :  'price1'+ 'price2' = 'seatprice[l]'"
+					else (seat[l]==6*i+3)||(seat[l]==6*i+4)
+						print"Seat positon : WINDOW SEAT"
+						price1<-2500
+						price2<-0
+						seatprice[l] <-(price1+price2)
+						printf"Seat no.     : 'seat[l]'"
+						printf"Seat price   :  'price1'+ 'price2' = 'seatprice[l]'"
+					
+
+		case'2' :
+			print"EXTRA LEG SPACE SEATS"
+
+			print"All the seats with extra leg space are :"
+			for k<-0 to 1
+				for j<-(3+5*k) to (5+5*k-1)
+				//	for i<-(6*j+1) and count<-0 to 2
+					for count<-0 to 2
+						print'i'
+				//	for i<-(6*j+4) and count<-0 to 2
+					for count<-0 to 2
+						print"pick a seat from above shown seats"
+						read 'p'
+			do
+				for count<-0
+					if(((19<=p)&&(p<=30))||((49<=p)&&(p<=60)))
+						seat[l]<-p
+					else
+						printf"wrong choice please reselect"
+				for i<-0 to l-1
+					if seat[l]==seat[i]
+						printf"Seat already taken.please select another"
+			while(i!=l)
+
+			print"You have selected a NORMAL SEAT for passenger"
+			for k<-0 to 1
+				for count<-0 to 2
+					if (seat[l]==6*i+1)||(seat[l]==6*i+6)
+						print"Seat positon : WINDOW SEAT"
+						price1<-3000
+						price2<-1500
+						seatprice[l] <-(price1+price2)
+						printf"Seat no.     : 'seat[l]'"
+						printf"Seat price   :  'price1'+ 'price2' = 'seatprice[l]'"
+
+					else if (seat[l]==6*i+2)||(seat[l]==6*i+5)
+						print"Seat positon : MIDDLE SEAT"
+						price1<-2500
+						price2<-1500
+						seatprice[l] <-(price1+price2)
+						printf"Seat no.     : 'seat[l]'"
+						printf"Seat price   :  'price1'+ 'price2' = 'seatprice[l]'"
+					else (seat[l]==6*i+3)||(seat[l]==6*i+4)
+						print"Seat positon : WINDOW SEAT"
+						price1<-2500
+						price2<-1500
+						seatprice[l] <-(price1+price2)
+						printf"Seat no.     : 'seat[l]'"
+						printf"Seat price   :  'price1'+ 'price2' = 'seatprice[l]'"
+					
+
+
+		case'3' : exit switch
+
+
+
+ALGORITHM : Reading passenger details
+	for i<-0 to n-1
+		print"Enter the following details of the passenger 'i+1'"
+		print"Name :"
+		read name[i]
+		print"Mobile number :"
+		read phno[i]
+		print"Age :"
+		read age[i]
+		print"Gender:"
+		read gen[i]
+
+
+ALGORITHM : FOOD SELECTION
+	for i<- 0 to n-1	
+		print"Please select add-ons of food for passsenger 'i+1' - 'name[i]' "
+		print"PRESS 0 FOR selecting food \n else PRESS any other key to terminate "
+		read 'b'
+		Food_required[i]<-b
+		if Food_required[i]==0
+		    printf("\n ENTER FOOD CHOICE :  \n PRESS 1 - FOR VEG \n PRESS 2 - FOR NON-veg \n");
+	            read 'food_choice[i]'
+		    if food_choice[i]=1 
+			    foodprice[i] <- 250; 
+		    else if food_choice[i]=2
+			    foodprice[i] <- 350; 
+		else
+		    foodprice[i] <- 0
+	
+
+
+ALGORITHM  :  Payment method
+	for i<- 0 to n-1
+	price[i] <- (seatprice[i]+foodprice[i])
+	print"The COSTS exclusive and inclusive of GST for passeneger 'i+1' 'name[i]'"
+	print"COST exclusive of 15% GST is : seatprice[i]+foodprice[i] = price[i]"
+	finalcost[i] <- 1.15*price[i]
+	print"COST inclusive of 15% GST is : 'finalcost[i]'"
+	amt <- (amt + finalcost[i])
+	print"The TOTAL AMOUNT TO BE PAID for all passengers being = Rs.'amt'"
+
+
+
+
+
+	print""
+----------------------------------
+Algorithm : for Airlines Seat Reservation System
+Step 1: Start 
+Step 2: [Input the source city and destination city]
+        read num1 & num2
+Step 3: [Input the number of tickets]
+	read n
+Step 4: [Input the date of travel in specified format] 
+	read day,month,date
+Step 5: [display of Flights Details along with the time]
+	for i<- 0 to 4
+		print details of flights
+Step 6: [Choose the airline you want to board]
+	print "select airlines" 
+	print details of selected flights
+	
+Step 7: [Display of all the seats]
+	for k<-0 to 1
+		print "NORMAL SEATS"
+		for j<-(0+5*k) to (2+5*k) 
+			print seat numbers with spacing
+		end for
+
+		print "EXTRA LEG SPACE SEATS"
+		for j<-(3+5*k) to (4+5*k) 
+			print seat numbers with spacing
+		end for
+	end for
+
+Step 8: [Display the pricing of the seats]
+	print the pricing of all types of seats
+
+Step 9: [Show the type of selected seat]
+	print details of type seat selected for respective passenger
+
+Step 10: [Checking validity of entered a seat number]
+	 if invalid 
+		tell user invalid seat number and ask to input again 
+
+Step 11: [Checking if entered seat is vacant or not]
+	 if vacant
+		then allot seat
+	 else if not vacant
+		ask to re-enter
+	 end if
+
+Step 12: [Display selected seat details for respective passenger]
+	 print "Window seat, Middle Seat or Inner Seat" based upon selection
+
+Step 13: [Input the Required Passengers Details]
+	for i<-0 to 
+	 read "name[i],phno[i],gen[i],age[i]"
+
+Step 14: [Input the food choice]
+	for i<-0 to 
+		if (food_required[i]==1)	
+			read "food_choice[i]"
+				if (food_choice[i]=1)
+					food_price<- 250
+				else
+					food_price<- 350
+		else 
+			food_price<-0			
+		end if
+	end for
+Step 15: [Doing Payment]
+	print"choose from following payment options"
+		1=UPI Payment
+		2=Net Banking
+		3=Debit And Credit Card
+	switch(choice)
+		case'1' : read details of upi id and do payment
+
+		case'2' : read details of bank,netbanking ID and do payment
+
+		case'3' : read card details,CVV and do payment
+	
+
+Step 16: [Confirm your payment]
+	 print"press 1 to confirm payment else press any other key"
+	 read x
+	 if x==1
+		make payment
+	 else  
+		goto step 19
+	 end if
+
+Step 17: [Issue and Printing of Boarding Pass]
+	 print"Airlines name"
+	 print"name,phno,gen,age"
+	 print"source_city,dest_city"
+	 print"finalprice"
+	 (printing all within a box for each passenger)
+
+Step 18: [Display the Greetings]
+	 print"BOOKING SUCCESFUL ,Wishing you a safe and happy journey ,Thank you for choosing us,looking forward to serve you again soon"
+
+Step 19 : Stop
